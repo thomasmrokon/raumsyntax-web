@@ -8,6 +8,7 @@ Kein GitHub Pages. Die Seite wird zusammen mit der [AID](https://github.com/thom
 
 ```
 raumsyntax.de/       → statische Dateien aus diesem Repo (nginx root)
+raumsyntax.de/apps/  → Auswahlseite der Prototypen, nginx Basic Auth
 raumsyntax.de/aid/   → AID-Streamlit-App (nginx proxy_pass → 127.0.0.1:8501)
 ```
 
@@ -35,5 +36,17 @@ Vorlage landet als `.new` daneben.
 ## Struktur
 
 - `index.html` — Hub-Seite (Produktkarten AID/DNA)
+- `apps/index.html` — Auswahlseite mit Link in jede App; liegt hinter Basic Auth
 - `impressum.html`
 - `datenschutz.html`
+
+## Zugang zur Auswahlseite
+
+`/apps/` ist die einzige geschützte Stelle: davor steht nginx Basic Auth
+(`/etc/nginx/.htpasswd-apps`), dahinter bringt jede App ihren eigenen Login
+mit. Weiteren Zugang anlegen:
+
+```
+ssh deploy@37.221.198.106
+printf '%s:%s\n' NAME "$(openssl passwd -apr1)" | sudo tee -a /etc/nginx/.htpasswd-apps
+```

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>raumsyntax – KI-Werkzeuge für räumliche Entscheidungen</title>
-<meta name="description" content="raumsyntax entwickelt KI-Werkzeuge, die Entscheidungen im Planungsprozess sichtbar, nachvollziehbar und wiederverwendbar machen.">
+<title>Prototypen – raumsyntax</title>
+<meta name="robots" content="noindex, nofollow">
 <style>
   :root {
     --accent-pink-dark: #D94F9F;
@@ -74,7 +74,7 @@
   .nav-links a.section-link:hover { color: var(--accent-green-light); }
 
   /* --- HERO --- */
-  .hero { padding: 4.5rem 0 3rem; }
+  .hero { padding: 3.5rem 0 2rem; }
   .eyebrow {
     color: var(--accent-pink-light); font-weight: 400; font-size: 0.85rem;
     text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.1rem;
@@ -85,12 +85,6 @@
     margin: 0 0 1.2rem; max-width: 20ch; color: var(--text-light);
   }
   .lede { font-size: 1.1rem; color: var(--text-grey-light); max-width: 56ch; margin: 0 0 1.8rem; }
-
-  .btn-link {
-    display: inline-block; color: var(--accent-green-light); text-decoration: none;
-    font-size: 1rem; border-bottom: 1px solid var(--accent-green-light); padding-bottom: 2px;
-  }
-  .btn-link:hover { color: var(--accent-pink-light); border-color: var(--accent-pink-light); }
 
   /* --- SECTIONS --- */
   section.products { padding: 1rem 0 4rem; }
@@ -119,6 +113,7 @@
   .product-card p.desc { color: var(--text-grey-light); font-size: 0.98rem; margin-bottom: 0.6rem; }
   .product-card a.cta { color: var(--accent-pink-light); text-decoration: none; font-size: 0.95rem; }
   .product-card a.cta:hover { color: var(--accent-green-light); text-decoration: underline; }
+  .product-card .hint { color: var(--text-grey-dark); font-size: 0.82rem; margin-top: 0.5rem; }
 
   /* --- FOOTER --- */
   footer {
@@ -142,9 +137,7 @@
   body.light-mode .product-tagline { color: var(--accent-pink-dark); }
   body.light-mode h2,
   body.light-mode .product-head h3 { color: var(--accent-green-dark); border-left-color: var(--accent-green-dark); }
-  body.light-mode .btn-link,
   body.light-mode .product-card a.cta { color: var(--accent-green-dark); }
-  body.light-mode .btn-link:hover,
   body.light-mode .product-card a.cta:hover { color: var(--accent-pink-dark); }
   body.light-mode .product-card { background: var(--bg-box-light); border-left-color: var(--accent-green-dark); }
   body.light-mode .product-card.placeholder { border-left-color: var(--border-color); }
@@ -164,8 +157,7 @@
   <nav class="wrap">
     <a class="brand" href="/">raumsyntax<span class="dot">.</span></a>
     <div class="nav-links">
-      <a class="section-link" href="#produkte">Produkte</a>
-      <a class="section-link" href="/apps/">Login</a>
+      <a class="section-link" href="/">Zur Website</a>
       <label class="theme-switch">
         <input type="checkbox" id="theme-toggle">
         <span class="slider"></span>
@@ -177,18 +169,17 @@
 
 <main class="wrap">
   <section class="hero">
-    <div class="eyebrow">raumsyntax</div>
-    <h1>KI-Werkzeuge für räumliche Entscheidungen.</h1>
+    <div class="eyebrow">Interner Bereich</div>
+    <h1>Prototypen.</h1>
     <p class="lede">
-      Wir übersetzen Anforderungen, Regeln und Präferenzen in nachvollziehbare,
-      wiederverwendbare Entwurfslogik — als Werkzeuge für Planung und Architektur.
+      Zugang zu den Werkzeugen, die gerade entstehen. Jede Anwendung hat ihre
+      eigene Anmeldung — die Zugangsdaten bekommst Du separat.
     </p>
-    <a class="btn-link" href="#produkte">→ Produkte entdecken</a>
   </section>
 
-  <section class="products" id="produkte">
-    <h2>Produkte</h2>
-    <p class="section-lede">raumsyntax liest Beziehungen im Raum. AID übersetzt sie in Grundrisse. DNA macht die Entscheidungen dahinter sichtbar.</p>
+  <section class="products" id="apps">
+    <h2>Anwendungen</h2>
+    <p class="section-lede">Beides sind Prototypen im aktiven Aufbau. Stände ändern sich, Daten können zurückgesetzt werden.</p>
     <div class="product-grid">
 
       <div class="product-card">
@@ -201,24 +192,20 @@
           KI-gestützte Layout- und Prozessplanung für den Industriebau — von der
           Bedarfsanalyse bis zur regelkonformen Flächenoptimierung.
         </p>
-        <a class="cta" href="mailto:info@raumsyntax.de?subject=Interesse%20an%20AID">→ Interesse? Kontakt</a>
-      </div>
-
-      <div class="product-card">
-        <div class="product-head">
-          <h3>DNA</h3>
-          <span class="badge badge-soon">In Entwicklung</span>
-        </div>
-        <p class="product-tagline">Decision-Network-Architecture</p>
-        <p class="desc">
-          Die Entscheidungslogik hinter dem Entwurf — messbar, nachvollziehbar,
-          wiederverwendbar.
-        </p>
-        <a class="cta" href="mailto:info@raumsyntax.de?subject=Interesse%20an%20DNA">→ Interesse? Kontakt</a>
+        <a class="cta" href="/aid/">→ AID öffnen</a>
       </div>
 
       <div class="product-card placeholder">
-        <p class="desc" style="margin:0;">Weitere Tools in Entwicklung.</p>
+        <div class="product-head">
+          <h3>DNA</h3>
+          <span class="badge badge-soon">In Vorbereitung</span>
+        </div>
+        <p class="product-tagline">Decision-Network-Architecture</p>
+        <p class="desc">
+          Das Haltungsprofil: über Bildvergleiche entsteht ein messbares Profil
+          der eigenen Entwurfshaltung.
+        </p>
+        <p class="hint">Wird gerade auf den Server gebracht.</p>
       </div>
 
     </div>
