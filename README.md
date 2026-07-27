@@ -11,7 +11,26 @@ raumsyntax.de/       → statische Dateien aus diesem Repo (nginx root)
 raumsyntax.de/aid/   → AID-Streamlit-App (nginx proxy_pass → 127.0.0.1:8501)
 ```
 
-Deploy-Skript: `AID/deploy.sh` (dort auch für dieses Repo angepasst — clont beide Repos auf den Server).
+Auf dem Server liegt unter `/opt/raumsyntax-web` ein Klon dieses Repos, der
+dem Deploy-Nutzer gehört und direkt der nginx-`root` ist. Ein Push nach
+`origin/main` allein ändert an der Live-Seite deshalb **nichts** — es fehlt
+der Pull auf dem Server:
+
+```
+git push
+ssh deploy@37.221.198.106 'git -C /opt/raumsyntax-web pull'
+```
+
+Prüfen:
+
+```
+curl -sI https://raumsyntax.de/ | head -1
+```
+
+Erstinstallation und AID-App: `AID/deploy.sh` — legt den Klon an, richtet
+Dienst und vhost ein. Eine bereits vorhandene vhost-Datei wird dabei nicht
+überschrieben (certbot verwaltet dort `listen`-Ports und TLS-Pfade); die
+Vorlage landet als `.new` daneben.
 
 ## Struktur
 
