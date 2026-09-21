@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>raumsyntax – KI-Werkzeuge für räumliche Entscheidungen</title>
-<meta name="description" content="raumsyntax entwickelt KI-Werkzeuge, die Entscheidungen im Planungsprozess sichtbar, nachvollziehbar und wiederverwendbar machen.">
+<title>raumsyntax – KI-Beratung und Software-Entwicklung für Planung und Bau</title>
+<meta name="description" content="raumsyntax berät Planungsbüros, Bauherren und Unternehmen der Bauwirtschaft zum Einsatz von KI und entwickelt individuelle Software – von der Strategie bis zum Werkzeug.">
 <style>
   :root {
     --accent-pink-dark: #D94F9F;
@@ -129,6 +129,25 @@
   footer a:hover { color: var(--accent-green-light); }
   footer .legal { margin-bottom: 0.6rem; }
 
+  /* --- LEISTUNGEN / VORGEHEN / ÜBER / KONTAKT --- */
+  section.block { padding: 1rem 0 3.5rem; scroll-margin-top: 4.5rem; }
+  section.products { scroll-margin-top: 4.5rem; }
+  .steps { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin-left: 1rem; }
+  .steps li { border-top: 1px solid var(--border-color); padding-top: 0.8rem; color: var(--text-grey-light); font-size: 0.95rem; }
+  .steps li b { display: block; color: var(--accent-pink-light); font-weight: 500; margin-bottom: 0.2rem; }
+  .principle { margin: 1.6rem 0 0 1rem; color: var(--text-grey-dark); font-size: 0.95rem; font-style: italic; }
+  .prose { margin-left: 1rem; max-width: 62ch; color: var(--text-grey-light); }
+  .prose p { margin-bottom: 1rem; }
+  .prose a { color: var(--accent-green-light); }
+  .prose a:hover { color: var(--accent-pink-light); }
+  .hero-links { display: flex; flex-wrap: wrap; gap: 1.6rem; }
+
+  @media (max-width: 600px) {
+    .nav-links { gap: 0.9rem; }
+    .nav-links a.section-link.optional { display: none; }
+    .theme-switch .mode-label { display: none; }
+  }
+
   /* --- LIGHT MODE --- */
   body.light-mode { background: var(--bg-light); color: var(--text-dark); }
   body.light-mode header.top { background: var(--bg-light); }
@@ -153,6 +172,13 @@
   body.light-mode footer a { color: var(--text-grey-mid); }
   body.light-mode footer a:hover { color: var(--accent-green-dark); }
 
+  body.light-mode .steps li,
+  body.light-mode .prose { color: var(--text-grey-mid); }
+  body.light-mode .steps li b { color: var(--accent-pink-dark); }
+  body.light-mode .steps li { border-top-color: var(--text-grey-light); }
+  body.light-mode .prose a { color: var(--accent-green-dark); }
+  body.light-mode .prose a:hover { color: var(--accent-pink-dark); }
+
   @media (max-width: 600px) {
     h1 { font-size: 2rem; }
   }
@@ -164,7 +190,11 @@
   <nav class="wrap">
     <a class="brand" href="/">raumsyntax<span class="dot">.</span></a>
     <div class="nav-links">
-      <a class="section-link" href="#produkte">Produkte</a>
+      <a class="section-link" href="#leistungen">Leistungen</a>
+      <a class="section-link optional" href="#vorgehen">Vorgehen</a>
+      <a class="section-link optional" href="#produkte">Produkte</a>
+      <a class="section-link optional" href="#ueber">Über</a>
+      <a class="section-link" href="#kontakt">Kontakt</a>
       <a class="section-link" href="/apps/">Login</a>
       <label class="theme-switch">
         <input type="checkbox" id="theme-toggle">
@@ -177,13 +207,62 @@
 
 <main class="wrap">
   <section class="hero">
-    <div class="eyebrow">raumsyntax</div>
-    <h1>KI-Werkzeuge für räumliche Entscheidungen.</h1>
+    <div class="eyebrow">Beratung · Software · Werkzeuge</div>
+    <h1>Planungswissen in Software übersetzen.</h1>
     <p class="lede">
-      Wir übersetzen Anforderungen, Regeln und Präferenzen in nachvollziehbare,
-      wiederverwendbare Entwurfslogik — als Werkzeuge für Planung und Architektur.
+      raumsyntax unterstützt Planungsbüros, Bauherren und Unternehmen der Bauwirtschaft
+      dabei, KI sinnvoll einzusetzen – von der Strategie bis zum individuellen Werkzeug.
     </p>
-    <a class="btn-link" href="#produkte">→ Produkte entdecken</a>
+    <div class="hero-links">
+      <a class="btn-link" href="mailto:info@raumsyntax.de?subject=Erstgespr%C3%A4ch">→ Erstgespräch vereinbaren</a>
+      <a class="btn-link" href="#leistungen">→ Leistungen</a>
+    </div>
+  </section>
+
+  <section class="products" id="leistungen">
+    <h2>Leistungen</h2>
+    <p class="section-lede">Beratung und Entwicklung aus einer Hand – mit dem Blick eines Architekten auf Planungsprozesse.</p>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-head"><h3>KI-Strategie &amp; Beratung</h3></div>
+        <p class="desc">
+          Wo lohnt sich KI in Ihrem Büro, und wo nicht? Wir nehmen Ihre Abläufe auf,
+          bewerten passende Werkzeuge und entwickeln einen realistischen Fahrplan.
+          Am Ende steht eine priorisierte Roadmap statt einer Sammlung von Tools.
+        </p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-head"><h3>Individuelle Software &amp; Automatisierung</h3></div>
+        <p class="desc">
+          Wenn Standardsoftware nicht passt, bauen wir Werkzeuge, die Ihre Regeln, Daten
+          und Abläufe abbilden – von der Automatisierung wiederkehrender Aufgaben über
+          regelbasierte Planungshilfen bis zu Prototypen für eigene Produkte.
+        </p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-head"><h3>Workshops &amp; Weiterbildung</h3></div>
+        <p class="desc">
+          Für Teams und Führungskräfte: eine praxisnahe Einführung in generative KI,
+          Agenten, Grenzen und Risiken – direkt an Ihren eigenen Projekten.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="block" id="vorgehen">
+    <h2>Vorgehen</h2>
+    <p class="section-lede">Klein anfangen, früh testen, dann verankern.</p>
+    <ol class="steps">
+      <li><b>1 · Verstehen</b>Gespräch, Prozesse, Daten.</li>
+      <li><b>2 · Prototyp</b>In wenigen Wochen ein Werkzeug, das Sie testen können.</li>
+      <li><b>3 · Prüfen</b>Einsatz an echten Projekten, gemeinsame Bewertung.</li>
+      <li><b>4 · Verankern</b>Übergabe, Schulung oder Weiterentwicklung.</li>
+    </ol>
+    <p class="principle">Nachvollziehbar statt Blackbox. Der kleinste sinnvolle Schritt zuerst.</p>
   </section>
 
   <section class="products" id="produkte">
@@ -221,6 +300,30 @@
         <p class="desc" style="margin:0;">Weitere Tools in Entwicklung.</p>
       </div>
 
+    </div>
+  </section>
+
+  <section class="block" id="ueber">
+    <h2>Wer steht dahinter</h2>
+    <div class="prose">
+      <p>
+        raumsyntax ist das Büro von Prof. Thomas J. Mrokon, Architekt und Professor für
+        Architektur mit Schwerpunkt Digitale Werkzeuge. Seit Jahren beschäftigt er sich mit
+        Computational Design und dem Einsatz von KI in Planung und Bau – in Lehre, Forschung
+        und zahlreichen Keynotes. raumsyntax bringt diese Erfahrung in die Praxis.
+      </p>
+      <p><a href="https://www.mrokon.de">→ Mehr über Thomas Mrokon</a></p>
+    </div>
+  </section>
+
+  <section class="block" id="kontakt">
+    <h2>Kontakt</h2>
+    <div class="prose">
+      <p>Erzählen Sie kurz, woran Sie arbeiten. Das erste Gespräch dauert 30 Minuten und ist unverbindlich.</p>
+      <p>
+        <a href="mailto:info@raumsyntax.de?subject=Erstgespr%C3%A4ch">info@raumsyntax.de</a><br>
+        <a href="https://www.linkedin.com/in/thomas-mrokon-33102971/" rel="noopener">LinkedIn</a>
+      </p>
     </div>
   </section>
 </main>
