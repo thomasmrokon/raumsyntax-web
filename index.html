@@ -134,15 +134,21 @@
   /* --- LEISTUNGEN / VORGEHEN / ÜBER / KONTAKT --- */
   section.block { padding: 1rem 0 3.5rem; scroll-margin-top: 4.5rem; }
   section.products { scroll-margin-top: 4.5rem; }
-  .steps { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin-left: 1rem; }
-  .steps li { border-top: 1px solid var(--border-color); padding-top: 0.8rem; color: var(--text-grey-light); font-size: 0.95rem; }
-  .steps li b { display: block; color: var(--accent-pink-light); font-weight: 500; margin-bottom: 0.2rem; }
   .principle { margin: 1.6rem 0 0 1rem; color: var(--text-grey-dark); font-size: 0.95rem; font-style: italic; }
   .prose { margin-left: 1rem; max-width: 62ch; color: var(--text-grey-light); }
   .prose p { margin-bottom: 1rem; }
   .prose a { color: var(--accent-green-light); }
   .prose a:hover { color: var(--accent-pink-light); }
   .hero-links { display: flex; flex-wrap: wrap; gap: 1.6rem; }
+  .phases { list-style: none; margin-left: 1rem; max-width: 70ch; }
+  .phases li { display: grid; grid-template-columns: 2.2rem 1fr; gap: 1rem; padding: 1.2rem 0; border-top: 1px solid var(--border-color); }
+  .phases li:last-child { border-bottom: 1px solid var(--border-color); }
+  .phase-no { font-size: 1.6rem; font-weight: 300; line-height: 1.1; color: var(--accent-pink-light); }
+  .phases h3 { font-size: 1.05rem; font-weight: 500; color: var(--accent-green-light); margin-bottom: 0.3rem; }
+  .phases p { color: var(--text-grey-light); font-size: 0.97rem; margin-bottom: 0.5rem; }
+  .phases p.example { font-size: 0.9rem; color: var(--text-grey-dark); margin: 0; padding-left: 0.8rem; border-left: 2px solid var(--border-color); }
+  .phases p.example span { color: var(--accent-pink-light); }
+  .section-lede b { font-weight: 500; color: var(--text-light); }
   .product-card p.stack { color: var(--text-grey-dark); font-size: 0.82rem; margin: 0; }
 
   @media (max-width: 600px) {
@@ -176,12 +182,16 @@
   body.light-mode footer a { color: var(--text-grey-mid); }
   body.light-mode footer a:hover { color: var(--accent-green-dark); }
 
-  body.light-mode .steps li,
   body.light-mode .prose { color: var(--text-grey-mid); }
-  body.light-mode .steps li b { color: var(--accent-pink-dark); }
-  body.light-mode .steps li { border-top-color: var(--text-grey-light); }
   body.light-mode .prose a { color: var(--accent-green-dark); }
   body.light-mode .prose a:hover { color: var(--accent-pink-dark); }
+  body.light-mode .phases li { border-color: var(--text-grey-light); }
+  body.light-mode .phases p { color: var(--text-grey-mid); }
+  body.light-mode .phases p.example { color: #666; border-left-color: var(--text-grey-light); }
+  body.light-mode .phase-no,
+  body.light-mode .phases p.example span { color: var(--accent-pink-dark); }
+  body.light-mode .phases h3 { color: var(--accent-green-dark); }
+  body.light-mode .section-lede b { color: var(--text-dark); }
 
   @media (max-width: 600px) {
     h1 { font-size: 2rem; }
@@ -295,12 +305,51 @@
 
   <section class="block" id="vorgehen">
     <h2>Vorgehen</h2>
-    <p class="section-lede">Klein anfangen, früh testen, dann verankern.</p>
-    <ol class="steps">
-      <li><b>1 · Verstehen</b>Gespräch, Prozesse, Daten.</li>
-      <li><b>2 · Prototyp</b>In wenigen Wochen ein Werkzeug, das Sie testen können.</li>
-      <li><b>3 · Prüfen</b>Einsatz an echten Projekten, gemeinsame Bewertung.</li>
-      <li><b>4 · Verankern</b>Übergabe, Schulung oder Weiterentwicklung.</li>
+    <p class="section-lede">Klein anfangen, früh testen, dann verankern. Wie das konkret aussieht, zeigt ein Projekt aus der eigenen Praxis:
+      die <b>Studiengangsplanung</b>, die eine über Jahre gewachsene Excel-Lösung abgelöst hat.</p>
+    <ol class="phases">
+      <li>
+        <span class="phase-no">1</span>
+        <div>
+          <h3>Verstehen</h3>
+          <p>Wir schauen uns an, wie heute wirklich gearbeitet wird: Wer pflegt welche Daten, wo entstehen
+            Doppelarbeit und Fehler, welche Regeln stecken nur im Kopf einzelner Personen?</p>
+          <p class="example"><span>Im Beispiel:</span> Curriculum, Lehrplanung und Deputate lagen in verknüpften
+            Excel-Tabellen mit Power Query und VBA – funktionsfähig, aber fehleranfällig und nur von wenigen zu durchschauen.
+            Erster Schritt war, die Planungslogik und ihre Ausnahmen aufzuschreiben.</p>
+        </div>
+      </li>
+      <li>
+        <span class="phase-no">2</span>
+        <div>
+          <h3>Prototyp</h3>
+          <p>Statt eines Lastenhefts entsteht früh ein Werkzeug, das Sie anfassen können – bewusst schmal,
+            aber mit echten Daten.</p>
+          <p class="example"><span>Im Beispiel:</span> Eine Web-Anwendung mit Datenbank, die zunächst nur Module,
+            Semester und Lehrende abbildet und die bestehenden Excel-Daten übernimmt.</p>
+        </div>
+      </li>
+      <li>
+        <span class="phase-no">3</span>
+        <div>
+          <h3>Prüfen</h3>
+          <p>Der Prototyp wird im laufenden Betrieb getestet. Was nicht passt, wird angepasst; was fehlt,
+            kommt Schritt für Schritt dazu.</p>
+          <p class="example"><span>Im Beispiel:</span> Neue Funktionen – Wochen- und Prüfungsplanung,
+            Deputatssalden, Planungsprüfungen – wurden an realen Semesterplanungen entwickelt und mit
+            automatischen Tests abgesichert.</p>
+        </div>
+      </li>
+      <li>
+        <span class="phase-no">4</span>
+        <div>
+          <h3>Verankern</h3>
+          <p>Das Werkzeug wird Teil des Alltags: mit Rollen und Rechten, Übergabe und Schulung – oder
+            als Basis für die Weiterentwicklung.</p>
+          <p class="example"><span>Im Beispiel:</span> Die Anwendung ist heute das zentrale System für Daten und
+            Planungslogik der Fachrichtung und wird zur Plattform ausgebaut, die auch andere Studiengänge nutzen können.</p>
+        </div>
+      </li>
     </ol>
     <p class="principle">Nachvollziehbar statt Blackbox. Der kleinste sinnvolle Schritt zuerst.</p>
   </section>
