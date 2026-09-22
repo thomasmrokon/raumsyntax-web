@@ -143,6 +143,11 @@
   .prose a { color: var(--accent-green-light); }
   .prose a:hover { color: var(--accent-pink-light); }
   .hero-links { display: flex; flex-wrap: wrap; gap: 1.6rem; }
+  .refs { list-style: none; margin-left: 1rem; max-width: 66ch; }
+  .refs li { border-top: 1px solid var(--border-color); padding: 1rem 0; color: var(--text-grey-light); font-size: 0.95rem; }
+  .refs li:last-child { border-bottom: 1px solid var(--border-color); }
+  .refs b { display: block; color: var(--accent-green-light); font-weight: 500; font-size: 1rem; margin-bottom: 0.2rem; }
+  .refs .stack { display: block; color: var(--text-grey-dark); font-size: 0.82rem; margin-top: 0.35rem; }
 
   @media (max-width: 600px) {
     .nav-links { gap: 0.9rem; }
@@ -181,6 +186,8 @@
   body.light-mode .steps li { border-top-color: var(--text-grey-light); }
   body.light-mode .prose a { color: var(--accent-green-dark); }
   body.light-mode .prose a:hover { color: var(--accent-pink-dark); }
+  body.light-mode .refs li { color: var(--text-grey-mid); border-color: var(--text-grey-light); }
+  body.light-mode .refs b { color: var(--accent-green-dark); }
 
   @media (max-width: 600px) {
     h1 { font-size: 2rem; }
@@ -254,6 +261,32 @@
       </div>
 
     </div>
+  </section>
+
+  <section class="block" id="referenzen">
+    <h2>Aus der Praxis</h2>
+    <p class="section-lede">Eigene Anwendungen, die aus realen Abläufen entstanden sind und im Alltag eingesetzt werden.</p>
+    <ul class="refs">
+      <li>
+        <b>myPIM</b>
+        KI-gestützte Arbeitsumgebung für die Büroorganisation. Bündelt E-Mail, Kalender, Aufgaben,
+        Kontakte, Cloud-Dienste und Messenger aus Microsoft 365, Exchange, Google und weiteren Quellen
+        an einem Ort. KI-Funktionen nehmen Routinearbeit ab – vom Nachverfolgen offener Mails bis zur
+        Terminabstimmung. Was nach außen geht, gibt der Mensch frei.
+        <span class="stack">Self-hosted · FastAPI · PostgreSQL/pgvector · Flutter</span>
+      </li>
+      <li>
+        <b>Studiengangsplanung</b>
+        Mehrbenutzer-Anwendung für Curriculum, Lehr-, Deputats-, Wochen- und Prüfungsplanung. Ersetzt
+        eine gewachsene Excel-/VBA-Lösung und wird zur konfigurierbaren Plattform für weitere Studiengänge.
+        <span class="stack">FastAPI · React/TypeScript · PostgreSQL</span>
+      </li>
+      <li>
+        <b>Campusverwaltung</b>
+        Werkzeug für die Organisation des Hochschulbetriebs – Verwaltungsabläufe digital, nachvollziehbar
+        und an einem Ort.
+      </li>
+    </ul>
   </section>
 
   <section class="block" id="vorgehen">
