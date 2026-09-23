@@ -1,452 +1,83 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>raumsyntax – KI-Beratung und Software-Entwicklung für Planung und Bau</title>
-<meta name="description" content="raumsyntax berät Planungsbüros, Bauherren und Unternehmen der Bauwirtschaft zum Einsatz von KI und entwickelt individuelle Software – von der Strategie bis zum Werkzeug.">
+<meta name="robots" content="noindex">
+<title>raumsyntax</title>
+<link rel="icon" href="data:,">
 <style>
   :root {
-    --accent-pink-dark: #D94F9F;
-    --accent-pink-light: #FDC5F6;
-    --accent-green-dark: #009E7F;
-    --accent-green-light: #15FFBC;
-    --text-dark: #222;
-    --text-light: #fff;
-    --text-grey-dark: #888;
-    --text-grey-light: #cccccc;
-    --text-grey-mid: #444;
-    --bg-dark: #1a1a1a;
-    --bg-light: #fff;
-    --bg-box-dark: #2a2a2a;
-    --bg-box-light: #f7f7f7;
-    --border-color: #333;
+    --bg: #ffffff;
+    --text: #1f1f1f;
+    --muted: #5e5e5e;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1c;
+      --text: #e8e8e6;
+      --muted: #a3a3a0;
+    }
+  }
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+  }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, "Times New Roman", serif;
+    font-size: 1.0625rem;
     line-height: 1.6;
-    color: var(--text-light);
-    background: var(--bg-dark);
-    font-size: 16px;
-    transition: background 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
   }
-  a { color: inherit; }
-  .wrap { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
-
-  /* --- THEME SWITCH --- */
-  .theme-switch {
-    display: flex; align-items: center; gap: 0.5rem;
-    font-size: 0.9rem; user-select: none; color: var(--accent-pink-light);
-  }
-  .theme-switch .slider {
-    width: 2.2em; height: 1.2em; background: #333; border-radius: 1em;
-    position: relative; display: inline-block; transition: background 0.3s;
-  }
-  .theme-switch .slider::before {
-    content: ""; position: absolute; left: 0.2em; top: 0.2em;
-    width: 0.8em; height: 0.8em; background: #fff; border-radius: 50%;
-    transition: transform 0.3s, background 0.3s; box-shadow: 0 0 2px #0002;
-  }
-  .theme-switch input[type="checkbox"] { display: none; }
-  .theme-switch input[type="checkbox"]:checked ~ .slider::before { transform: translateX(1em); }
-  .theme-switch .mode-label { min-width: 3.5em; text-align: left; }
-
-  /* --- HEADER / NAV --- */
-  header.top {
-    position: sticky; top: 0; z-index: 10;
-    background: var(--bg-dark); border-bottom: 1px solid var(--border-color);
-    transition: background 0.3s;
-  }
-  nav.wrap {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.1rem 1rem;
-  }
-  .brand {
-    font-size: 1.15rem; font-weight: 300; letter-spacing: -0.01em;
-    text-decoration: none; color: var(--text-light);
-  }
-  .brand .dot { color: var(--accent-pink-light); }
-  .nav-links { display: flex; align-items: center; gap: 1.6rem; }
-  .nav-links a.section-link {
-    color: var(--text-grey-light); text-decoration: none; font-size: 0.95rem;
-  }
-  .nav-links a.section-link:hover { color: var(--accent-green-light); }
-
-  /* --- HERO --- */
-  .hero { padding: 4.5rem 0 3rem; }
-  .eyebrow {
-    color: var(--accent-pink-light); font-weight: 400; font-size: 0.85rem;
-    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.1rem;
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 34rem;
+    padding: 2rem 1.5rem;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
   h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 300; line-height: 1.15; letter-spacing: -0.01em;
-    margin: 0 0 1.2rem; max-width: 20ch; color: var(--text-light);
+    font-size: 1.75rem;
+    font-weight: normal;
+    letter-spacing: 0.01em;
+    margin: 0 0 1rem;
   }
-  .lede { font-size: 1.1rem; color: var(--text-grey-light); max-width: 56ch; margin: 0 0 1.8rem; }
-
-  .btn-link {
-    display: inline-block; color: var(--accent-green-light); text-decoration: none;
-    font-size: 1rem; border-bottom: 1px solid var(--accent-green-light); padding-bottom: 2px;
+  p {
+    margin: 0;
+    color: var(--muted);
   }
-  .btn-link:hover { color: var(--accent-pink-light); border-color: var(--accent-pink-light); }
-
-  /* --- SECTIONS --- */
-  section.products { padding: 1rem 0 4rem; }
-  h2 {
-    font-size: 1.3rem; font-weight: 400; margin-bottom: 0.6rem;
-    color: var(--accent-green-light); border-left: 3px solid var(--accent-green-light);
-    padding-left: 1rem;
-  }
-  .section-lede { color: var(--text-grey-light); max-width: 60ch; margin: 0.6rem 0 2rem 1rem; }
-
-  .product-grid { display: flex; flex-direction: column; gap: 1rem; }
-  .product-card {
-    background: var(--bg-box-dark); padding: 1.4rem; border-radius: 4px;
-    border-left: 3px solid var(--accent-green-light);
-  }
-  .product-card.placeholder { border-left-color: var(--border-color); opacity: 0.65; }
-  .product-head { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-bottom: 0.3rem; }
-  .product-head h3 { font-size: 1.1rem; font-weight: 500; color: var(--accent-green-light); margin: 0; }
-  .badge {
-    font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
-    padding: 2px 8px; border-radius: 999px; white-space: nowrap;
-  }
-  .badge-live { color: var(--accent-green-light); border: 1px solid var(--accent-green-light); }
-  .badge-soon { color: var(--text-grey-dark); border: 1px solid var(--border-color); }
-  .product-tagline { font-size: 0.82rem; color: var(--accent-pink-light); font-weight: 500; margin-bottom: 0.5rem; }
-  .product-card p.desc { color: var(--text-grey-light); font-size: 0.98rem; margin-bottom: 0.6rem; }
-  .product-card a.cta { color: var(--accent-pink-light); text-decoration: none; font-size: 0.95rem; }
-  .product-card a.cta:hover { color: var(--accent-green-light); text-decoration: underline; }
-
-  /* --- FOOTER --- */
   footer {
-    text-align: center; margin-top: 2rem; padding: 2rem 1rem 2.5rem;
-    border-top: 1px solid var(--border-color); color: var(--text-grey-dark); font-size: 0.9rem;
+    max-width: 34rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem 1.5rem;
+    box-sizing: border-box;
+    font-size: 0.875rem;
   }
-  footer a { color: var(--text-grey-dark); text-decoration: none; }
-  footer a:hover { color: var(--accent-green-light); }
-  footer .legal { margin-bottom: 0.6rem; }
-  footer .carbon { margin-bottom: 0.6rem; font-size: 0.85rem; }
-  footer .carbon a { text-decoration: underline; }
-
-  /* --- LEISTUNGEN / VORGEHEN / ÜBER / KONTAKT --- */
-  section.block { padding: 1rem 0 3.5rem; scroll-margin-top: 4.5rem; }
-  section.products { scroll-margin-top: 4.5rem; }
-  .principle { margin: 1.6rem 0 0 1rem; color: var(--text-grey-dark); font-size: 0.95rem; font-style: italic; }
-  .prose { margin-left: 1rem; max-width: 62ch; color: var(--text-grey-light); }
-  .prose p { margin-bottom: 1rem; }
-  .prose a { color: var(--accent-green-light); }
-  .prose a:hover { color: var(--accent-pink-light); }
-  .hero-links { display: flex; flex-wrap: wrap; gap: 1.6rem; }
-  .phases { list-style: none; margin-left: 1rem; max-width: 70ch; }
-  .phases li { display: grid; grid-template-columns: 2.2rem 1fr; gap: 1rem; padding: 1.2rem 0; border-top: 1px solid var(--border-color); }
-  .phases li:last-child { border-bottom: 1px solid var(--border-color); }
-  .phase-no { font-size: 1.6rem; font-weight: 300; line-height: 1.1; color: var(--accent-pink-light); }
-  .phases h3 { font-size: 1.05rem; font-weight: 500; color: var(--accent-green-light); margin-bottom: 0.3rem; }
-  .phases p { color: var(--text-grey-light); font-size: 0.97rem; margin-bottom: 0.5rem; }
-  .phases p.example { font-size: 0.9rem; color: var(--text-grey-dark); margin: 0; padding-left: 0.8rem; border-left: 2px solid var(--border-color); }
-  .phases p.example span { color: var(--accent-pink-light); }
-  .section-lede b { font-weight: 500; color: var(--text-light); }
-  .product-card p.stack { color: var(--text-grey-dark); font-size: 0.82rem; margin: 0; }
-
-  @media (max-width: 600px) {
-    .nav-links { gap: 0.9rem; }
-    .nav-links a.section-link.optional { display: none; }
-    .theme-switch .mode-label { display: none; }
+  footer a {
+    color: var(--muted);
+    margin-right: 1.25rem;
   }
-
-  /* --- LIGHT MODE --- */
-  body.light-mode { background: var(--bg-light); color: var(--text-dark); }
-  body.light-mode header.top { background: var(--bg-light); }
-  body.light-mode .brand { color: var(--text-dark); }
-  body.light-mode .theme-switch { color: var(--accent-pink-dark); }
-  body.light-mode h1 { color: var(--text-dark); }
-  body.light-mode .lede,
-  body.light-mode .section-lede,
-  body.light-mode .nav-links a.section-link,
-  body.light-mode .product-card p.desc { color: var(--text-grey-mid); }
-  body.light-mode .eyebrow,
-  body.light-mode .product-tagline { color: var(--accent-pink-dark); }
-  body.light-mode h2,
-  body.light-mode .product-head h3 { color: var(--accent-green-dark); border-left-color: var(--accent-green-dark); }
-  body.light-mode .btn-link,
-  body.light-mode .product-card a.cta { color: var(--accent-green-dark); }
-  body.light-mode .btn-link:hover,
-  body.light-mode .product-card a.cta:hover { color: var(--accent-pink-dark); }
-  body.light-mode .product-card { background: var(--bg-box-light); border-left-color: var(--accent-green-dark); }
-  body.light-mode .product-card.placeholder { border-left-color: var(--border-color); }
-  body.light-mode .badge-live { color: var(--accent-green-dark); border-color: var(--accent-green-dark); }
-  body.light-mode footer { color: var(--text-grey-mid); }
-  body.light-mode footer a { color: var(--text-grey-mid); }
-  body.light-mode footer a:hover { color: var(--accent-green-dark); }
-
-  body.light-mode .prose { color: var(--text-grey-mid); }
-  body.light-mode .prose a { color: var(--accent-green-dark); }
-  body.light-mode .prose a:hover { color: var(--accent-pink-dark); }
-  body.light-mode .phases li { border-color: var(--text-grey-light); }
-  body.light-mode .phases p { color: var(--text-grey-mid); }
-  body.light-mode .phases p.example { color: #666; border-left-color: var(--text-grey-light); }
-  body.light-mode .phase-no,
-  body.light-mode .phases p.example span { color: var(--accent-pink-dark); }
-  body.light-mode .phases h3 { color: var(--accent-green-dark); }
-  body.light-mode .section-lede b { color: var(--text-dark); }
-
-  @media (max-width: 600px) {
-    h1 { font-size: 2rem; }
+  footer a:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
   }
 </style>
 </head>
 <body>
-
-<header class="top">
-  <nav class="wrap">
-    <a class="brand" href="/">raumsyntax<span class="dot">.</span></a>
-    <div class="nav-links">
-      <a class="section-link" href="#leistungen">Leistungen</a>
-      <a class="section-link optional" href="#vorgehen">Vorgehen</a>
-      <a class="section-link optional" href="#produkte">Produkte</a>
-      <a class="section-link optional" href="#ueber">Über</a>
-      <a class="section-link" href="#kontakt">Kontakt</a>
-      <a class="section-link" href="/apps/">Login</a>
-      <label class="theme-switch">
-        <input type="checkbox" id="theme-toggle">
-        <span class="slider"></span>
-        <span class="mode-label">Dunkel</span>
-      </label>
-    </div>
-  </nav>
-</header>
-
-<main class="wrap">
-  <section class="hero">
-    <div class="eyebrow">Beratung · Software · Werkzeuge</div>
-    <h1>Planungswissen in Software übersetzen.</h1>
-    <p class="lede">
-      raumsyntax unterstützt Planungsbüros, Bauherren und Unternehmen der Bauwirtschaft
-      dabei, KI sinnvoll einzusetzen – von der Strategie bis zum individuellen Werkzeug.
-    </p>
-    <div class="hero-links">
-      <a class="btn-link" href="mailto:info@raumsyntax.de?subject=Erstgespr%C3%A4ch">→ Erstgespräch vereinbaren</a>
-      <a class="btn-link" href="#leistungen">→ Leistungen</a>
-    </div>
-  </section>
-
-  <section class="products" id="leistungen">
-    <h2>Leistungen</h2>
-    <p class="section-lede">Beratung und Entwicklung aus einer Hand – mit dem Blick eines Architekten auf Planungsprozesse.</p>
-    <div class="product-grid">
-
-      <div class="product-card">
-        <div class="product-head"><h3>KI-Strategie &amp; Beratung</h3></div>
-        <p class="desc">
-          Wo lohnt sich KI in Ihrem Büro, und wo nicht? Wir nehmen Ihre Abläufe auf,
-          bewerten passende Werkzeuge und entwickeln einen realistischen Fahrplan.
-          Am Ende steht eine priorisierte Roadmap statt einer Sammlung von Tools.
-        </p>
-      </div>
-
-      <div class="product-card">
-        <div class="product-head"><h3>Individuelle Software &amp; Automatisierung</h3></div>
-        <p class="desc">
-          Wenn Standardsoftware nicht passt, bauen wir Werkzeuge, die Ihre Regeln, Daten
-          und Abläufe abbilden – von der Automatisierung wiederkehrender Aufgaben über
-          regelbasierte Planungshilfen bis zu Prototypen für eigene Produkte.
-        </p>
-      </div>
-
-      <div class="product-card">
-        <div class="product-head"><h3>Workshops &amp; Weiterbildung</h3></div>
-        <p class="desc">
-          Für Teams und Führungskräfte: eine praxisnahe Einführung in generative KI,
-          Agenten, Grenzen und Risiken – direkt an Ihren eigenen Projekten.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="products" id="referenzen">
-    <h2>Aus der Praxis</h2>
-    <p class="section-lede">Eigene Anwendungen, die aus realen Abläufen entstanden sind und im Alltag eingesetzt werden.</p>
-    <div class="product-grid">
-
-      <div class="product-card">
-        <div class="product-head"><h3>myPIM</h3></div>
-        <p class="desc">
-          KI-gestützte Arbeitsumgebung für die Büroorganisation. Bündelt E-Mail, Kalender, Aufgaben,
-          Kontakte, Cloud-Dienste und Messenger aus Microsoft 365, Exchange, Google und weiteren Quellen
-          an einem Ort. KI-Funktionen nehmen Routinearbeit ab – vom Nachverfolgen offener Mails bis zur
-          Terminabstimmung. Was nach außen geht, gibt der Mensch frei.
-        </p>
-        <p class="stack">Self-hosted · FastAPI · PostgreSQL/pgvector · Flutter</p>
-      </div>
-
-      <div class="product-card">
-        <div class="product-head"><h3>Studiengangsplanung</h3></div>
-        <p class="desc">
-          Mehrbenutzer-Anwendung für Curriculum, Lehr-, Deputats-, Wochen- und Prüfungsplanung. Ersetzt
-          eine gewachsene Excel-/VBA-Lösung und wird zur konfigurierbaren Plattform für weitere Studiengänge.
-        </p>
-        <p class="stack">FastAPI · React/TypeScript · PostgreSQL</p>
-      </div>
-
-      <div class="product-card">
-        <div class="product-head"><h3>Campusverwaltung</h3></div>
-        <p class="desc">
-          Werkzeug für die Organisation des Hochschulbetriebs – Verwaltungsabläufe digital, nachvollziehbar
-          und an einem Ort.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="block" id="vorgehen">
-    <h2>Vorgehen</h2>
-    <p class="section-lede">Klein anfangen, früh testen, dann verankern. Wie das konkret aussieht, zeigt ein Projekt aus der eigenen Praxis:
-      die <b>Studiengangsplanung</b>, die eine über Jahre gewachsene Excel-Lösung abgelöst hat.</p>
-    <ol class="phases">
-      <li>
-        <span class="phase-no">1</span>
-        <div>
-          <h3>Verstehen</h3>
-          <p>Wir schauen uns an, wie heute wirklich gearbeitet wird: Wer pflegt welche Daten, wo entstehen
-            Doppelarbeit und Fehler, welche Regeln stecken nur im Kopf einzelner Personen?</p>
-          <p class="example"><span>Im Beispiel:</span> Curriculum, Lehrplanung und Deputate lagen in verknüpften
-            Excel-Tabellen mit Power Query und VBA – funktionsfähig, aber fehleranfällig und nur von wenigen zu durchschauen.
-            Erster Schritt war, die Planungslogik und ihre Ausnahmen aufzuschreiben.</p>
-        </div>
-      </li>
-      <li>
-        <span class="phase-no">2</span>
-        <div>
-          <h3>Prototyp</h3>
-          <p>Statt eines Lastenhefts entsteht früh ein Werkzeug, das Sie anfassen können – bewusst schmal,
-            aber mit echten Daten.</p>
-          <p class="example"><span>Im Beispiel:</span> Eine Web-Anwendung mit Datenbank, die zunächst nur Module,
-            Semester und Lehrende abbildet und die bestehenden Excel-Daten übernimmt.</p>
-        </div>
-      </li>
-      <li>
-        <span class="phase-no">3</span>
-        <div>
-          <h3>Prüfen</h3>
-          <p>Der Prototyp wird im laufenden Betrieb getestet. Was nicht passt, wird angepasst; was fehlt,
-            kommt Schritt für Schritt dazu.</p>
-          <p class="example"><span>Im Beispiel:</span> Neue Funktionen – Wochen- und Prüfungsplanung,
-            Deputatssalden, Planungsprüfungen – wurden an realen Semesterplanungen entwickelt und mit
-            automatischen Tests abgesichert.</p>
-        </div>
-      </li>
-      <li>
-        <span class="phase-no">4</span>
-        <div>
-          <h3>Verankern</h3>
-          <p>Das Werkzeug wird Teil des Alltags: mit Rollen und Rechten, Übergabe und Schulung – oder
-            als Basis für die Weiterentwicklung.</p>
-          <p class="example"><span>Im Beispiel:</span> Die Anwendung ist heute das zentrale System für Daten und
-            Planungslogik der Fachrichtung und wird zur Plattform ausgebaut, die auch andere Studiengänge nutzen können.</p>
-        </div>
-      </li>
-    </ol>
-    <p class="principle">Nachvollziehbar statt Blackbox. Der kleinste sinnvolle Schritt zuerst.</p>
-  </section>
-
-  <section class="products" id="produkte">
-    <h2>Produkte</h2>
-    <p class="section-lede">raumsyntax liest Beziehungen im Raum. AID übersetzt sie in Grundrisse. DNA macht die Entscheidungen dahinter sichtbar.</p>
-    <div class="product-grid">
-
-      <div class="product-card">
-        <div class="product-head">
-          <h3>AID</h3>
-          <span class="badge badge-live">Beta</span>
-        </div>
-        <p class="product-tagline">Augmented Industrial Design</p>
-        <p class="desc">
-          KI-gestützte Layout- und Prozessplanung für den Industriebau — von der
-          Bedarfsanalyse bis zur regelkonformen Flächenoptimierung.
-        </p>
-        <a class="cta" href="mailto:info@raumsyntax.de?subject=Interesse%20an%20AID">→ Interesse? Kontakt</a>
-      </div>
-
-      <div class="product-card">
-        <div class="product-head">
-          <h3>DNA</h3>
-          <span class="badge badge-soon">In Entwicklung</span>
-        </div>
-        <p class="product-tagline">Decision-Network-Architecture</p>
-        <p class="desc">
-          Die Entscheidungslogik hinter dem Entwurf — messbar, nachvollziehbar,
-          wiederverwendbar.
-        </p>
-        <a class="cta" href="mailto:info@raumsyntax.de?subject=Interesse%20an%20DNA">→ Interesse? Kontakt</a>
-      </div>
-
-      <div class="product-card placeholder">
-        <p class="desc" style="margin:0;">Weitere Tools in Entwicklung.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="block" id="ueber">
-    <h2>Wer steht dahinter</h2>
-    <div class="prose">
-      <p>
-        raumsyntax ist das Büro von Prof. Thomas J. Mrokon, Architekt und Professor für
-        Architektur mit Schwerpunkt Digitale Werkzeuge. Seit Jahren beschäftigt er sich mit
-        Computational Design und dem Einsatz von KI in Planung und Bau – in Lehre, Forschung
-        und zahlreichen Keynotes. raumsyntax bringt diese Erfahrung in die Praxis.
-      </p>
-      <p><a href="https://www.mrokon.de">→ Mehr über Thomas Mrokon</a></p>
-    </div>
-  </section>
-
-  <section class="block" id="kontakt">
-    <h2>Kontakt</h2>
-    <div class="prose">
-      <p>Erzählen Sie kurz, woran Sie arbeiten. Das erste Gespräch dauert 30 Minuten und ist unverbindlich.</p>
-      <p>
-        <a href="mailto:info@raumsyntax.de?subject=Erstgespr%C3%A4ch">info@raumsyntax.de</a><br>
-        <a href="https://www.linkedin.com/in/thomas-mrokon-33102971/" rel="noopener">LinkedIn</a>
-      </p>
-    </div>
-  </section>
+<main>
+  <h1>raumsyntax</h1>
+  <p>Diese Domain wird privat gehalten. Derzeit werden hier keine Leistungen angeboten.</p>
 </main>
-
 <footer>
-  <p class="legal"><a href="/impressum.html">Impressum</a> • <a href="/datenschutz.html">Datenschutz</a></p>
-  <p class="carbon">🌱 Diese Website erreicht eine A+ Bewertung bei <a href="https://www.websitecarbon.com" rel="noopener">websitecarbon.com</a></p>
-  <p>© 2026 raumsyntax — Prof. Thomas J. Mrokon</p>
+  <a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a>
 </footer>
-
-<script>
-  const toggle = document.getElementById('theme-toggle');
-  const body = document.body;
-  const modeLabel = document.querySelector('.mode-label');
-
-  function setLightMode() {
-    body.classList.add('light-mode');
-    modeLabel.textContent = 'Hell';
-    localStorage.setItem('theme', 'light');
-  }
-  function setDarkMode() {
-    body.classList.remove('light-mode');
-    modeLabel.textContent = 'Dunkel';
-    localStorage.setItem('theme', 'dark');
-  }
-  toggle.addEventListener('change', function () {
-    this.checked ? setLightMode() : setDarkMode();
-  });
-
-  const saved = localStorage.getItem('theme');
-  if (saved === 'light') { toggle.checked = true; setLightMode(); }
-  else if (saved === 'dark') { toggle.checked = false; setDarkMode(); }
-  else if (window.matchMedia('(prefers-color-scheme: light)').matches) { toggle.checked = true; setLightMode(); }
-</script>
-
 </body>
 </html>
