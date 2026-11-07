@@ -3,78 +3,192 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>raumsyntax</title>
+<title>raumsyntax – KI in der Planungspraxis</title>
+<meta name="description" content="raumsyntax: Beratung, Workshops und Impulse zum Einsatz künstlicher Intelligenz in Architektur- und Planungsbüros sowie Unternehmen der Bauwirtschaft.">
 <link rel="icon" href="data:,">
 <style>
   :root {
     --bg: #ffffff;
     --text: #1f1f1f;
     --muted: #5e5e5e;
+    --line: #e2e2df;
+    --accent: #1f5f52;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #1c1c1c;
       --text: #e8e8e6;
       --muted: #a3a3a0;
+      --line: #3a3a38;
+      --accent: #8fd3c1;
     }
   }
-  html, body {
-    margin: 0;
-    height: 100%;
+  html {
     background: var(--bg);
-    color: var(--text);
   }
   body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
     font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, "Times New Roman", serif;
     font-size: 1.0625rem;
     line-height: 1.6;
-    display: flex;
-    flex-direction: column;
   }
-  main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    max-width: 34rem;
-    padding: 2rem 1.5rem;
+  main, footer {
+    max-width: 38rem;
     margin: 0 auto;
+    padding: 0 1.5rem;
     box-sizing: border-box;
   }
+  header {
+    padding: 4rem 0 2.5rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 2.5rem;
+  }
   h1 {
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: normal;
     letter-spacing: 0.01em;
-    margin: 0 0 1rem;
+    margin: 0 0 0.5rem;
+  }
+  .lede {
+    font-size: 1.25rem;
+    margin: 0 0 1.25rem;
+  }
+  h2 {
+    font-size: 0.8125rem;
+    font-weight: normal;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 3rem 0 1.25rem;
+  }
+  h3 {
+    font-size: 1.0625rem;
+    font-weight: bold;
+    margin: 0 0 0.25rem;
   }
   p {
+    margin: 0 0 1rem;
+  }
+  .muted {
+    color: var(--muted);
+  }
+  .services {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .services li {
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .services li:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .services p {
     margin: 0;
     color: var(--muted);
   }
-  footer {
-    max-width: 34rem;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 1.5rem 1.5rem;
+  ol.steps {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+  }
+  ol.steps li {
+    margin-bottom: 0.5rem;
+  }
+  a {
+    color: var(--accent);
+    text-underline-offset: 0.2em;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+  }
+  .cta {
+    display: inline-block;
+    margin: 0.5rem 0 1rem;
+    padding: 0.7rem 1.1rem;
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    text-decoration: none;
+    min-height: 44px;
     box-sizing: border-box;
+  }
+  .cta:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid var(--line);
     font-size: 0.875rem;
+    color: var(--muted);
   }
   footer a {
     color: var(--muted);
     margin-right: 1.25rem;
   }
-  footer a:focus-visible {
-    outline: 2px solid var(--text);
-    outline-offset: 2px;
+  @media (max-width: 30rem) {
+    header {
+      padding-top: 2.5rem;
+    }
+    h1 {
+      font-size: 1.75rem;
+    }
+    .lede {
+      font-size: 1.125rem;
+    }
   }
 </style>
 </head>
 <body>
 <main>
-  <h1>raumsyntax</h1>
-  <p>Diese Domain wird privat gehalten. Derzeit werden hier keine Leistungen angeboten.</p>
+  <header>
+    <h1>raumsyntax</h1>
+    <p class="lede">KI in der Planungspraxis.</p>
+    <p class="muted">Beratung, Workshops und Impulse für Architektur- und Planungsbüros, Unternehmen der Bauwirtschaft und Bildungsinstitutionen.</p>
+  </header>
+
+  <p>Wie kann künstliche Intelligenz Ihre Arbeit sinnvoll unterstützen – und was bedeutet sie für Ihre Organisation? Ich begleite Sie dabei, Potenziale zu erkennen, konkrete Anwendungen zu entwickeln und die Menschen im Wandel mitzunehmen.</p>
+  <p>Im Mittelpunkt stehen die praktische Anwendung von KI und ihre Auswirkungen auf Zusammenarbeit, Abläufe und Geschäftsmodelle – nicht die Technik um ihrer selbst willen.</p>
+
+  <h2>Leistungen</h2>
+  <ul class="services">
+    <li>
+      <h3>Strategische KI-Beratung</h3>
+      <p>Wo lohnt sich der Einstieg? Gemeinsam betrachten wir Ihre Arbeitsprozesse, identifizieren geeignete KI-Anwendungen und priorisieren die nächsten Schritte – passend zu Ihren Zielen und Ressourcen.</p>
+    </li>
+    <li>
+      <h3>Prozessanalyse</h3>
+      <p>Viel Aufwand im Büro steckt in wiederkehrenden, manuellen Abläufen – von der Dokumentation auf der Baustelle bis zur Abstimmung im Team. Wir machen diese Abläufe sichtbar und entwickeln ein Konzept, wie KI sie sinnvoll unterstützen kann.</p>
+    </li>
+    <li>
+      <h3>Workshops &amp; Befähigung</h3>
+      <p>KI im eigenen Arbeitsalltag erproben: In praxisnahen Workshops entwickeln Teams ein Verständnis für Möglichkeiten und Grenzen und erarbeiten Ansätze für ihre konkreten Aufgaben.</p>
+    </li>
+    <li>
+      <h3>Keynotes &amp; Impulse</h3>
+      <p>Perspektiven für Ihre Veranstaltung: Wie verändert KI das Planen, Arbeiten und Leben? Impulse zu digitaler Transformation, neuen Geschäftsmodellen und dem Faktor Mensch eröffnen Raum für Diskussion.</p>
+    </li>
+  </ul>
+
+  <h2>So fangen wir an</h2>
+  <ol class="steps">
+    <li>Sie schildern Ihr Anliegen in ein paar Stichpunkten.</li>
+    <li>In einem ersten Gespräch klären wir Ausgangslage und Ziele.</li>
+    <li>Daraus entwickeln wir ein passendes Format und stimmen Umfang und Rahmen gemeinsam ab.</li>
+  </ol>
+
+  <h2>Hinter raumsyntax</h2>
+  <p>raumsyntax ist die Beratungstätigkeit von Prof. Thomas J. Mrokon. Er lehrt und forscht an der Hochschule Mainz zu Entwerfen, Digitaler Konstruktion und KI-gestützter Planung. Davor plante er komplexe, parametrisch entwickelte Bauten wie das Haus der Astronomie in Heidelberg und die ESO Supernova in Garching und gründete das Start-up monomer.</p>
+  <p class="muted">Die Beratung erfolgt selbstständig und unabhängig von der Tätigkeit an der Hochschule. Forschung, Lehre und Vorträge finden Sie auf <a href="https://mrokon.de">mrokon.de</a>.</p>
+
+  <h2>Kontakt</h2>
+  <p>Ein paar Stichpunkte zu Ihrer Organisation, Ihrer Fragestellung und dem gewünschten Zeitrahmen helfen mir, mich auf unser Gespräch vorzubereiten.</p>
+  <a class="cta" href="mailto:info@raumsyntax.de?subject=Anfrage%20an%20raumsyntax">info@raumsyntax.de</a>
 </main>
 <footer>
   <a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a>
