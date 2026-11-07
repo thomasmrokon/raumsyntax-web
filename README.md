@@ -1,7 +1,10 @@
 # raumsyntax-web
 
-Statische Platzhalterseite für raumsyntax.de: `index.html`, `impressum.html`, `datenschutz.html`.
+Statische Website für raumsyntax.de: `index.html`, `impressum.html`, `datenschutz.html`.
 Keine Skripte, keine Cookies, keine externen Ressourcen.
+
+Die Startseite stellt die Beratungstätigkeit vor (Beratung, Prozessanalyse, Workshops, Keynotes).
+Forschung, Lehre und Vorträge stehen auf mrokon.de; beide Seiten verlinken sich gegenseitig.
 
 ## Deployment
 
